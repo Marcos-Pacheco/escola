@@ -1,0 +1,71 @@
+services:
+
+  #PHP APP Service
+  app:
+    image: marcospacheco/php-8.2
+    build:
+      context: ./
+      dockerfile: ./Dockerfiles/php-8.2/Dockerfile
+    container_name: app
+    tty: true
+    environment:
+      SERVICE_NAME: app
+      SERVICE_TAGS: dev
+    working_dir: /var/www/app
+    volumes:
+      - ./app:/var/www/app
+    networks:
+      - app
+
+  #Nginx Service
+  infatek:
+    image: nginx:alpine
+    container_name: infatek
+    restart: always
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./app:/var/www/app
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app
+
+  #Node service
+  node:
+    image: node:alpine
+    build:
+      context: ./
+      dockerfile: ./Dockerfiles/node-22.6/Dockerfile
+    container_name: node
+    restart: unless-stopped
+    working_dir: /var/www/app
+    tty: true
+    volumes:
+      - ./app:/var/www/app
+    networks:
+      - app
+
+  db_postgres:
+    image: postgres:13.1
+    command: postgres -c DateStyle=DMY
+    container_name: postgres
+    restart: always
+    tty: true
+    working_dir: /var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      # - ./.docker/postgres:/var/lib/postgresql/data # descomente esta linha para salvar os dados do banco entre down e up
+      - ./.docker/dumps:/dumps
+    networks:
+      - app
+
+#Docker Networks
+networks:
+  app:
+    driver: bridge
