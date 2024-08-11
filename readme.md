@@ -20,7 +20,7 @@ Siga os passos abaixo para configurar e executar o projeto:
 1. **Clone o projeto para uma pasta local:**
 
    ```bash
-   git clone https://github.com/seu-usuario/nome-do-repositorio.git
+   git clone https://github.com/Marcos-Pacheco/escola.git
    ```
 
 2. **Execute o comando Docker Compose:**
