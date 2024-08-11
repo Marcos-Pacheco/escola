@@ -15,4 +15,14 @@ class Turma extends Model
         'ano',
         'data_criacao'
     ];
+
+    public function disciplinas()
+    {
+        return $this->belongsToMany(Disciplina::class,'turma_disciplinas','turma_id','disciplina_id');
+    }
+
+    public function docentes()
+    {
+        return $this->belongsToMany(User::class,'turma_disciplina_docentes', 'docente_id','turma_disciplina_id');
+    }
 }

@@ -14,4 +14,8 @@ class Disciplina extends Model
         'descricao',
         'data_criacao'
     ];
+
+    function turmas() {
+        return $this->belongsToMany(Turma::class, 'turma_disciplinas','disciplina_id','turma_id');
+    }
 }
