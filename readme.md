@@ -26,7 +26,7 @@ Siga os passos abaixo para configurar e executar o projeto:
 2. **Execute o comando Docker Compose:**
     Na raiz do projeto, execute o comando:
     ```
-    docker compose up
+    docker compose up -d
     ```
 3. **Execute o script de inicialização:**
     O script init.sh é responsável por executar todas as configurações iniciais necessárias. Para isso, é necessário dar permissão de execução ao script e, em seguida, executá-lo:
