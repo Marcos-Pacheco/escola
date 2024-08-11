@@ -13,5 +13,5 @@ class Disciplina extends Model
     private $fillable = [
         'descricao',
         'data_criacao'
-    ]
+    ];
 }
