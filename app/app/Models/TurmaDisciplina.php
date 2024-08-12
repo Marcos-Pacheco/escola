@@ -13,6 +13,5 @@ class TurmaDisciplina extends Model
     protected $fillable = [
         'turma_id',
         'disciplina_id',
-        'docente_id'
     ];
 }

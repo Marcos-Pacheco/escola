@@ -10,6 +10,7 @@ docker exec -it postgres bash -c 'psql -U postgres -c "CREATE DATABASE escola;" 
 cp ./app/.env.example ./app/.env
 docker exec -it app bash -c 'php artisan key:generate'
 docker exec -it app bash -c 'php artisan migrate'
+docker exec -it app bash -c 'php artisan db:seed'
 
 echo ""
 echo "================= CONFIGURAÇÃO FINALIZADA ================="
