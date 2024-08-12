@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TurmaDocente extends Model
 {
     use HasFactory,SoftDeletes;
-    private $table = 'turma_estudantes';
-    private $fillable = [
+    protected $table = 'turma_estudantes';
+    protected $fillable = [
         'turma_id',
         'disciplina_id'
     ];

@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class TurmaDisciplinaDocente extends Model
 {
     use HasFactory, SoftDeletes;
-    private $table = 'turma_disciplina_docentes';
+    protected $table = 'turma_disciplina_docentes';
 }
