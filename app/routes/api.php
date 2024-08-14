@@ -7,9 +7,16 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
-// Route::prefix('locacao')->name('locacao.')->group(function () {
-//     Route::get('/', [App\Http\Controllers\gfac\VeiculoLocacaoController::class, 'index'])->name('index');
-//     Route::post('/', [App\Http\Controllers\gfac\VeiculoLocacaoController::class, 'store'])->name('store');
-//     Route::delete('/{locacao_id}/delete', [App\Http\Controllers\gfac\VeiculoLocacaoController::class, 'destroy'])->name('delete');
+// Route::prefix('direcao')->name('direcao.')->group(function () {
+//     // controler direcao
+// });
+// Route::prefix('docente')->name('docente.')->group(function () {
+//     // controler docente
+// });
+// Route::prefix('disciplina')->name('disciplina.')->group(function () {
+//     // controler disciplina
+// });
+// Route::prefix('turma')->name('turma.')->group(function () {
+//     // controler turma
 // });
 
